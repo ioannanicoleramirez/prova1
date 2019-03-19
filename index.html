@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang=it>
+	<head>
+		<title>Titolo della pagina qui</title>
+		<!-- CSS normalize online -->
+		<link rel=stylesheet href=http://getskeleton.com/dist/css/normalize.css>
+		
+		<!-- CSS Skeleton online -->
+		<link rel=stylesheet href=http://getskeleton.com/dist/css/skeleton.css>
+	
+		<!-- Javascript -->
+		<script>
+		/*le funzioni qui*/
+		function calcolo(){
+			/*identificare le variabili*/
+			var a =document.forms[0].a.valueAsNumber;
+			var b =document.forms[0].b.valueAsNumber;
+			var c =document.forms[0].c.valueAsNumber;
+			/*calcolo perimetro*/
+			var perimetro = a+b+c;
+			/*calcolo il semiperimetro*/
+			var p =perimetro/2;
+			/*calcolo le differenze tra p e i lati*/
+			var d1 = p-a;
+			var d2 = p-b;
+			var d3 = p-c;
+			/*calcolo il prodotto*/
+			var prodotto =p*d1*d2*d3;
+			/*calcolo l'area*/
+			var area_erone = Math.sqrt(prodotto);
+			/*mostra i risultati*/
+			document.getElementById("perimetro").innerHTML="il perimetro misura"+perimetro;
+			document.getElementById("area").innerHTML= "L'area misura "+area_erone
+		}
+		function annulla(){
+			document.getElementById("perimetro").innerHTML=" ";
+			document.getElementById("area").innerHTML= " ";
+			}
+		</script>
+	</head>
+	<body>
+		<div class=container>
+		<div class="six columns">
+			<h1>la formula di erone </h1>
+			<p>la formula di erone serve per calcolare l'area di un <b>tiangolo qualsiasi</b>
+			quando si conoscono solo le misure dei suoi <b>lati</b>
+			ma non le<b>altezze</b></p>
+			<img src=IMAGES/scaleno.png class=u-full-width>
+		</div>
+		<div class="six columns">
+		<h1>calcola l'area</h1>
+		<form name=erone>
+		<fieldset>
+			<label for=a>LATO A </label><br>
+			<input type=number name=a min=0.01 step=0.01 required><br>
+			<label for=b>LATO B </label><br>
+			<input type=number name=b min=0.01 step=0.01 required><br>
+			<label for=c>LATO C </label><br>
+			<input type=number name=c min=0.01 step=0.01 required><br>
+		</fieldset>
+		<input type=reset onclick=allulla() value=annulla>
+		<button type=button onclick=calcolo()>calcolo</button><br>
+		<p id=perimetro> </p>
+		<p id=area> </p>
+		
+		</form>
+		</div>
+		</div>
+		</div>
+	</body>
+</html>
